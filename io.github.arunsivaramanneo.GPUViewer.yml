@@ -1,7 +1,7 @@
 id: io.github.arunsivaramanneo.GPUViewer
 runtime: org.freedesktop.Platform
 sdk: org.freedesktop.Sdk
-runtime-version: "18.08"
+runtime-version: "19.08"
 finish-args:
   - --device=all # OpenCL requires /dev/nvidia-uvm
   - --share=ipc
@@ -39,33 +39,6 @@ modules:
       - type: file
         path: io.github.arunsivaramanneo.GPUViewer.appdata.xml
     modules:
-      - name: vulkan-tools
-        buildsystem: cmake-ninja
-        config-opts:
-          - -DGLSLANG_INSTALL_DIR=/app
-          - -DVULKAN_HEADERS_INSTALL_DIR=/app
-          - -DCMAKE_BUILD_TYPE=Release
-        sources:
-          - type: archive
-            url: "https://github.com/KhronosGroup/Vulkan-Tools/archive/sdk-1.1.82.0.tar.gz"
-            sha256: 22e5e5dfd47535e1664458ee59706abcaace96575d1a3d7fa9ae779a9e83b89c
-        modules:
-          - name: glslang
-            buildsystem: cmake-ninja
-            config-opts:
-              - -DBUILD_SHARED_LIBS=ON
-            sources:
-              - type: archive
-                url: "https://github.com/KhronosGroup/glslang/archive/7.9.2888.tar.gz"
-                sha256: cb66779d0e6b5f07f0445bd58289a24e56e12693e71d75c8fae3db31ffacaf8c
-
-          - name: vulkan-headers
-            buildsystem: cmake-ninja
-            sources:
-              - type: archive
-                url: "https://github.com/KhronosGroup/Vulkan-Headers/archive/sdk-1.1.82.0.tar.gz"
-                sha256: df73da07d547cfbe88a797802401ea8225e4844e13d4fde52a7cb6e00e5179e5
-
       - name: mesa-demos
         config-opts:
           - --bindir=/app/lib/mesa-demos
