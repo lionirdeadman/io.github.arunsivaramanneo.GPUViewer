@@ -46,13 +46,13 @@ modules:
           - mv -v /app/lib/mesa-demos/*info /app/bin/
         sources:
           - type: archive
-            url: "https://mesa.freedesktop.org/archive/demos/8.3.0/mesa-demos-8.3.0.tar.bz2"
-            sha256: c173154bbd0d5fb53d732471984def42fb1b14ac85fcb834138fb9518b3e0bef
+            url: "https://archive.mesa3d.org//demos/mesa-demos-8.4.0.tar.bz2"
+            sha256: 01e99c94a0184e63e796728af89bfac559795fb2a0d6f506fa900455ca5fff7d
         cleanup:
           - /lib/mesa-demos
         modules:
           - shared-modules/glew/glew.json
-          - shared-modules/glu/glu-9.0.0.json
+          - shared-modules/glu/glu-9.json
 
           - name: freeglut
             buildsystem: cmake-ninja
@@ -61,8 +61,8 @@ modules:
               - -DOpenGL_GL_PREFERENCE=LEGACY
             sources:
               - type: archive
-                url: "https://datapacket.dl.sourceforge.net/project/freeglut/freeglut/3.0.0/freeglut-3.0.0.tar.gz"
-                sha256: 2a43be8515b01ea82bcfa17d29ae0d40bd128342f0930cd1f375f1ff999f76a2
+                url: "http://prdownloads.sourceforge.net/freeglut/freeglut-3.2.1.tar.gz"
+                sha256: d4000e02102acaf259998c870e25214739d1f16f67f99cb35e4f46841399da68
 
       - name: clinfo
         no-autogen: true
